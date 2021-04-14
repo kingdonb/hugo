@@ -33,7 +33,8 @@ COPY --from=build /go/bin/hugo /usr/bin/hugo
 # libc6-compat & libstdc++ are required for extended SASS libraries
 # ca-certificates are required to fetch outside resources (like Twitter oEmbeds)
 RUN apk update && \
-    apk add --no-cache ca-certificates libc6-compat libstdc++ git
+    apk add --no-cache ca-certificates libc6-compat libstdc++ git \
+	grep rsync bash make nodejs npm curl openssh-client
 
 VOLUME /site
 WORKDIR /site
